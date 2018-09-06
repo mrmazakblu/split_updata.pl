@@ -51,8 +51,11 @@ binmode INFILE;
  
 # We'll dump the files into a folder called "output".
 my $fileLoc=0;
-my $BASEPATH = "$ARGV[2]/output/";
-mkdir $BASEPATH;
+my $BASEPATH = "output/";
+if (scalar(@ARGV) >= 3) {
+    $BASEPATH = $ARGV[2]/output/;
+  }
+  mkdir $BASEPATH;
 
 while (!eof(INFILE))
 {
