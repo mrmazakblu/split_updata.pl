@@ -16,4 +16,4 @@ argument 3 = base directory to be used when extracting
 ./splitupdate UPDATE.APP . /base-dir-for-extracting
 ```
 
-The img files will be extracted in the /output/ folder.
+The img files will be extracted in the /base-dir-for-extracting/output/ folder.
