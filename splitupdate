@@ -51,7 +51,7 @@ binmode INFILE;
  
 # We'll dump the files into a folder called "output".
 my $fileLoc=0;
-my $BASEPATH = "output/";
+my $BASEPATH = "$ARGV[2]/output/";
 mkdir $BASEPATH;
 
 while (!eof(INFILE))
