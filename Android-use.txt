@@ -1,0 +1,39 @@
+UNPACKING Hauwei update.app 
+from inside android
+
+Download the update needed from 
+http://pro-teammt.ru/firmware-database
+
+download the  Splitupdate perl script from --- https://github.com/mrmazakblu/split_updata.pl  (download the repo zip)
+extract splitupdate to folder 
+
+Using an android file manager browse to the "Download" folder and unzip the updates.
+
+Install "termux" in your android (from play store or apk mirror of choice)
+
+open termux and add perl by running this command "pkg install perl" 
+
+
+***termux uses its own symlinks to android filesystem so some paths are different.****
+
+The following commands are assumeing the locations of files to be inside the standard android download folder.
+ASSUMED LOCATIONS:
+UPDATE.APP = /sdcard/Download/update/UPDATE.APP                       in termux = storage/downloads/update/UPDATE.APP
+splitupdate = /sdcard/Download/split_update.pl-master/splitupdate     in termux = storage/downloads/split_update.pl-master/splitupdate
+
+
+open termux (adjust file locations in following command to match your needs)
+
+Example to extract all images:
+storage/downloads/split_update.pl-master/splitupdate storage/downloads/update/UPDATE.APP . storage/downloads
+
+The above should unpack the update.app into individual image files in the "output" folder. The "." in needed. 
+It selects all images to be extracted, if you want only one image replace the "." with the image name. 
+
+Example to extract only ramdisk.img
+storage/downloads/split_update.pl-master/splitupdate storage/downloads/update/UPDATE.APP ramdisk storage/downloads
+
+Location for this folder will be 
+"storage/downloads/output" as far as termux is concerned, and "/sdcard/Download/output" in the android file system
+
+
