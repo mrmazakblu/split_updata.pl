@@ -5,6 +5,9 @@ Improved tool for splitting UPDATE.APP for Huawei phones
 
 To extract execute:
 ```
+Need perl installed and have perl linled in system path.
+Or call perl first
+
 chmod +x splitupdate
 
 Command plus 3 needed  arguments
@@ -15,5 +18,7 @@ argument 3 = base directory to be used when extracting
 
 ./splitupdate UPDATE.APP . /base-dir-for-extracting
 ```
+In above example the "." is used to force all images contained in update.app to be extracted
+If you only want one image, replace the "." with image you want extracted. (it needs to be case sensitive)
 
 The img files will be extracted in the /base-dir-for-extracting/output/ folder.
