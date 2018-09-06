@@ -53,7 +53,7 @@ binmode INFILE;
 my $fileLoc=0;
 my $BASEPATH = "output/";
 if (scalar(@ARGV) >= 3) {
-    $BASEPATH = $ARGV[2]/output/;
+    $BASEPATH = "$ARGV[2]/output/";
   }
   mkdir $BASEPATH;
 
