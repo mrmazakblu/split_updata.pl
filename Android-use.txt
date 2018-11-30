@@ -14,26 +14,21 @@ Install "termux" in your android (from play store or apk mirror of choice)
 open termux and add perl by running this command "pkg install perl" 
 
 
-***termux uses its own symlinks to android filesystem so some paths are different.****
+***Termux has trouble gaining permission to exicute the script, when it is in /sdcard (internal)
+I found it easiest to put the spkitupdate perls script and the update.app file you want to extract
+outside of the sdcard symlink folder location and set theboutput folder base to the termux data folder.
 
-The following commands are assumeing the locations of files to be inside the standard android download folder.
-ASSUMED LOCATIONS:
-UPDATE.APP = /sdcard/Download/update/UPDATE.APP                       in termux = storage/downloads/update/UPDATE.APP
-splitupdate = /sdcard/Download/split_update.pl-master/splitupdate     in termux = storage/downloads/split_update.pl-master/splitupdate
+like in this example
 
+from termux window.
 
-open termux (adjust file locations in following command to match your needs)
-
-Example to extract all images:
-storage/downloads/split_update.pl-master/splitupdate storage/downloads/update/UPDATE.APP . storage/downloads
-
-The above should unpack the update.app into individual image files in the "output" folder. The "." in needed. 
-It selects all images to be extracted, if you want only one image replace the "." with the image name. 
-
-Example to extract only ramdisk.img
-storage/downloads/split_update.pl-master/splitupdate storage/downloads/update/UPDATE.APP ramdisk storage/downloads
-
-Location for this folder will be 
-"storage/downloads/output" as far as termux is concerned, and "/sdcard/Download/output" in the android file system
+su -c mkdir /data/splitupdate
+su -c cp /storage/sdcard0/Download/update/UPDATE.APP /data/splitupdate/UPDATE.APP
+su -c cp /storage/sdcard0/Download/split_updata.pl-master/splitupdate /data/splitupdate/splitupdate.pl
+su -c chmod 777 /data/splitupdate/*
+mkdir /data/data/com.termux/files/home/splitupdate
+/data/splitupdate/splitupdate.pl /data/splitupdate/UPDATE.APP . /data/data/com.termux/files/home/splitupdate
 
 
+
+the period in the above last line will extract all images. if you want only one image exchange the period for the image name.
