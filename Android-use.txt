@@ -15,8 +15,8 @@ open termux and add perl by running this command "pkg install perl"
 
 
 ***Termux has trouble gaining permission to exicute the script, when it is in /sdcard (internal)
-I found it easiest to put the spkitupdate perls script and the update.app file you want to extract
-outside of the sdcard symlink folder location and set theboutput folder base to the termux data folder.
+I found it easiest to put the splitupdate perl script and the update.app file you want to extract
+outside of the sdcard symlink folder location and set the output folder base to the termux data folder.
 
 like in this example
 
