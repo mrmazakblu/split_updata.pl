@@ -11,7 +11,7 @@ call bin\folder-chooser.bat
 ::THIS FIRST CALL IS USED TO GET LIST OF CONTAINED IMAGES
 bin\perl\bin\perl.exe bin\splitupdate "%file%" null
 echo INPUT PARTITION NAME TO EXTRACT
-echo JUST PRESS ENTER WITH NO NAME TO EXTRACT ALL
+echo JUST ENTER a period "." TO EXTRACT ALL
 echo INPUT NULL TO SKIP EXTRACTION
 echo IF DISPLAYED NAME ABOVE IS IN CAPITOLS THEN IT MUST BE ENTERED THAT WAY
 SET /P filename="What would you like to Extract ?  "
